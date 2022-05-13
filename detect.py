@@ -24,12 +24,9 @@ body = [{
 request = requests.post(endpoint, params=params, headers=headers, json=body)
 response = request.json()
 
-x=json.dumps(response)
-result = json.loads(x)
-
-language = (result[0]['language'])
-certainty = (result[0]['score'])
-
 print(response)
+
+language = (response[0]['language'])
+certainty = (response[0]['score'])
 
 print('The text is in '+ language + ' with a confidence score of ' + str(round(certainty)*100) + '%')
